@@ -36,7 +36,10 @@ category_dist = df['category'].value_counts().reset_index()
 category_dist.columns = ['category', 'count']
 fig_cat = px.bar(category_dist, x='category', y='count', color='category',
                  title='Nobel Prizes Awarded by Category')
+fig_cat.update_xaxes(showgrid=False)
+fig_cat.update_yaxes(showgrid=False)
 st.plotly_chart(fig_cat, use_container_width=True)
+
 
 st.markdown("---")
 
@@ -69,10 +72,12 @@ fig_age = px.histogram(age_data, nbins=150,
                    title='Distribution of Laureates Age at Award',
                    labels={'value':'Age', 'count':'Frequency'},
                    template='plotly_white')
+fig_age.update_xaxes(showgrid=False)
+fig_age.update_yaxes(showgrid=False)
 
 # fig_age = px.box(df, x='category', y='age', color='category', points='all',
 #                  title='Age Distribution by Nobel Prize Category')
-st.plotly_chart(fig_age, use_container_width=True)
+st.plotly_chart(fig_age, use_container_width=True,showgrid=False)
 
 st.markdown("---")
 
